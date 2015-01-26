@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LSKRandomColorMainViewController.h
 //  RandomColor
 //
 //  Created by Shuai Liu on 15/1/23.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface LSKRandomColorMainViewController : UIViewController
 
 
 @end

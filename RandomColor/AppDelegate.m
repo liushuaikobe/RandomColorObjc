@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LSKRandomColorMainViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    if (!self.window) {
+        self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    }
+
+    self.window.backgroundColor = [UIColor whiteColor];
+    LSKRandomColorMainViewController *mainViewController = [[LSKRandomColorMainViewController alloc] init];
+    self.window.rootViewController = mainViewController;
+
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		371E296DB896CC4D1A4D95BD /* LSKRandomColorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 371E2F42D94E8BC40CB39C25 /* LSKRandomColorTableViewCell.m */; };
+		371E2A90551AE18C6C358287 /* LSKColorDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 371E2BF30218CBE7647E51D9 /* LSKColorDictionary.m */; };
+		371E2F7D141B68919A26887E /* LSKColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 371E25B08EC4B92E722DDB82 /* LSKColorUtils.m */; };
 		580EF7551A727C5500AAE1DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580EF7541A727C5500AAE1DF /* main.m */; };
 		580EF7581A727C5500AAE1DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580EF7571A727C5500AAE1DF /* AppDelegate.m */; };
-		580EF75B1A727C5500AAE1DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580EF75A1A727C5500AAE1DF /* ViewController.m */; };
-		580EF75E1A727C5500AAE1DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580EF75C1A727C5500AAE1DF /* Main.storyboard */; };
+		580EF75B1A727C5500AAE1DF /* LSKRandomColorMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580EF75A1A727C5500AAE1DF /* LSKRandomColorMainViewController.m */; };
 		580EF7601A727C5500AAE1DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 580EF75F1A727C5500AAE1DF /* Images.xcassets */; };
 		580EF7631A727C5500AAE1DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 580EF7611A727C5500AAE1DF /* LaunchScreen.xib */; };
 		580EF76F1A727C5500AAE1DF /* RandomColorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 580EF76E1A727C5500AAE1DF /* RandomColorTests.m */; };
-		580EF77B1A72848700AAE1DF /* LSKColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 580EF77A1A72848700AAE1DF /* LSKColorUtils.m */; };
-		580EF77E1A7289FC00AAE1DF /* LSKColorDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 580EF77D1A7289FC00AAE1DF /* LSKColorDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,23 +29,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		371E21D265EB2D911F457B87 /* LSKRandomColor-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LSKRandomColor-PrefixHeader.pch"; sourceTree = "<group>"; };
+		371E254C5F6817401DEE121A /* LSKColorUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKColorUtils.h; sourceTree = "<group>"; };
+		371E25B08EC4B92E722DDB82 /* LSKColorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKColorUtils.m; sourceTree = "<group>"; };
+		371E2B1EACD57748EA42035F /* LSKColorDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKColorDictionary.h; sourceTree = "<group>"; };
+		371E2BF30218CBE7647E51D9 /* LSKColorDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKColorDictionary.m; sourceTree = "<group>"; };
+		371E2E17953CA7186D84E0DE /* LSKRandomColorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKRandomColorTableViewCell.h; sourceTree = "<group>"; };
+		371E2F42D94E8BC40CB39C25 /* LSKRandomColorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKRandomColorTableViewCell.m; sourceTree = "<group>"; };
 		580EF74F1A727C5500AAE1DF /* RandomColor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomColor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		580EF7531A727C5500AAE1DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		580EF7541A727C5500AAE1DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		580EF7561A727C5500AAE1DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		580EF7571A727C5500AAE1DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		580EF7591A727C5500AAE1DF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		580EF75A1A727C5500AAE1DF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		580EF75D1A727C5500AAE1DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		580EF7591A727C5500AAE1DF /* LSKRandomColorMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSKRandomColorMainViewController.h; sourceTree = "<group>"; };
+		580EF75A1A727C5500AAE1DF /* LSKRandomColorMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSKRandomColorMainViewController.m; sourceTree = "<group>"; };
 		580EF75F1A727C5500AAE1DF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		580EF7621A727C5500AAE1DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		580EF7681A727C5500AAE1DF /* RandomColorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomColorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		580EF76D1A727C5500AAE1DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		580EF76E1A727C5500AAE1DF /* RandomColorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RandomColorTests.m; sourceTree = "<group>"; };
-		580EF7791A72848700AAE1DF /* LSKColorUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSKColorUtils.h; path = Utils/LSKColorUtils.h; sourceTree = "<group>"; };
-		580EF77A1A72848700AAE1DF /* LSKColorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSKColorUtils.m; path = Utils/LSKColorUtils.m; sourceTree = "<group>"; };
-		580EF77C1A7289FC00AAE1DF /* LSKColorDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKColorDictionary.h; sourceTree = "<group>"; };
-		580EF77D1A7289FC00AAE1DF /* LSKColorDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKColorDictionary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		371E210A078F467146F3EE24 /* ColorUtils */ = {
+			isa = PBXGroup;
+			children = (
+				371E2BF30218CBE7647E51D9 /* LSKColorDictionary.m */,
+				371E254C5F6817401DEE121A /* LSKColorUtils.h */,
+				371E2B1EACD57748EA42035F /* LSKColorDictionary.h */,
+				371E25B08EC4B92E722DDB82 /* LSKColorUtils.m */,
+			);
+			path = ColorUtils;
+			sourceTree = "<group>";
+		};
+		371E27F9A009D168D5DAFD6B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				371E2F42D94E8BC40CB39C25 /* LSKRandomColorTableViewCell.m */,
+				371E2E17953CA7186D84E0DE /* LSKRandomColorTableViewCell.h */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		580EF7461A727C5500AAE1DF = {
 			isa = PBXGroup;
 			children = (
@@ -87,15 +109,15 @@
 		580EF7511A727C5500AAE1DF /* RandomColor */ = {
 			isa = PBXGroup;
 			children = (
-				580EF7781A72845A00AAE1DF /* Utils */,
 				580EF7561A727C5500AAE1DF /* AppDelegate.h */,
 				580EF7571A727C5500AAE1DF /* AppDelegate.m */,
-				580EF7591A727C5500AAE1DF /* ViewController.h */,
-				580EF75A1A727C5500AAE1DF /* ViewController.m */,
-				580EF75C1A727C5500AAE1DF /* Main.storyboard */,
+				580EF7591A727C5500AAE1DF /* LSKRandomColorMainViewController.h */,
+				580EF75A1A727C5500AAE1DF /* LSKRandomColorMainViewController.m */,
 				580EF75F1A727C5500AAE1DF /* Images.xcassets */,
 				580EF7611A727C5500AAE1DF /* LaunchScreen.xib */,
 				580EF7521A727C5500AAE1DF /* Supporting Files */,
+				371E27F9A009D168D5DAFD6B /* Views */,
+				371E210A078F467146F3EE24 /* ColorUtils */,
 			);
 			path = RandomColor;
 			sourceTree = "<group>";
@@ -105,6 +127,7 @@
 			children = (
 				580EF7531A727C5500AAE1DF /* Info.plist */,
 				580EF7541A727C5500AAE1DF /* main.m */,
+				371E21D265EB2D911F457B87 /* LSKRandomColor-PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -124,17 +147,6 @@
 				580EF76D1A727C5500AAE1DF /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		580EF7781A72845A00AAE1DF /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				580EF7791A72848700AAE1DF /* LSKColorUtils.h */,
-				580EF77A1A72848700AAE1DF /* LSKColorUtils.m */,
-				580EF77C1A7289FC00AAE1DF /* LSKColorDictionary.h */,
-				580EF77D1A7289FC00AAE1DF /* LSKColorDictionary.m */,
-			);
-			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,7 +229,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				580EF75E1A727C5500AAE1DF /* Main.storyboard in Resources */,
 				580EF7631A727C5500AAE1DF /* LaunchScreen.xib in Resources */,
 				580EF7601A727C5500AAE1DF /* Images.xcassets in Resources */,
 			);
@@ -237,11 +248,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				580EF77B1A72848700AAE1DF /* LSKColorUtils.m in Sources */,
-				580EF77E1A7289FC00AAE1DF /* LSKColorDictionary.m in Sources */,
-				580EF75B1A727C5500AAE1DF /* ViewController.m in Sources */,
+				580EF75B1A727C5500AAE1DF /* LSKRandomColorMainViewController.m in Sources */,
 				580EF7581A727C5500AAE1DF /* AppDelegate.m in Sources */,
 				580EF7551A727C5500AAE1DF /* main.m in Sources */,
+				371E2A90551AE18C6C358287 /* LSKColorDictionary.m in Sources */,
+				371E2F7D141B68919A26887E /* LSKColorUtils.m in Sources */,
+				371E296DB896CC4D1A4D95BD /* LSKRandomColorTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,14 +276,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		580EF75C1A727C5500AAE1DF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				580EF75D1A727C5500AAE1DF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		580EF7611A727C5500AAE1DF /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -363,6 +367,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "RandomColor/LSKRandomColor-PrefixHeader.pch";
 				INFOPLIST_FILE = RandomColor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -373,6 +378,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "RandomColor/LSKRandomColor-PrefixHeader.pch";
 				INFOPLIST_FILE = RandomColor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -387,6 +393,8 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RandomColor/LSKRandomColor-PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -406,6 +414,8 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RandomColor/LSKRandomColor-PrefixHeader.pch";
 				INFOPLIST_FILE = RandomColorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -432,6 +442,7 @@
 				580EF7741A727C5500AAE1DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		580EF7751A727C5500AAE1DF /* Build configuration list for PBXNativeTarget "RandomColorTests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +451,7 @@
 				580EF7771A727C5500AAE1DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
