@@ -7,6 +7,6 @@
 
 
 @implementation LSKRandomColorTableViewCell {
-
+    UILabel *_colorValueLabel;
 }
 @end

@@ -7,4 +7,7 @@
 
 
 @interface LSKRandomColorTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) NSString *colorValue;
+
 @end

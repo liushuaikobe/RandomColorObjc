@@ -10,6 +10,7 @@
 		371E296DB896CC4D1A4D95BD /* LSKRandomColorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 371E2F42D94E8BC40CB39C25 /* LSKRandomColorTableViewCell.m */; };
 		371E2A90551AE18C6C358287 /* LSKColorDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 371E2BF30218CBE7647E51D9 /* LSKColorDictionary.m */; };
 		371E2F7D141B68919A26887E /* LSKColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 371E25B08EC4B92E722DDB82 /* LSKColorUtils.m */; };
+		371E2FE8DC817787E04245AA /* LSKActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 371E246788C6848D91311490 /* LSKActionSheetView.m */; };
 		580EF7551A727C5500AAE1DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580EF7541A727C5500AAE1DF /* main.m */; };
 		580EF7581A727C5500AAE1DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580EF7571A727C5500AAE1DF /* AppDelegate.m */; };
 		580EF75B1A727C5500AAE1DF /* LSKRandomColorMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580EF75A1A727C5500AAE1DF /* LSKRandomColorMainViewController.m */; };
@@ -30,10 +31,13 @@
 
 /* Begin PBXFileReference section */
 		371E21D265EB2D911F457B87 /* LSKRandomColor-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LSKRandomColor-PrefixHeader.pch"; sourceTree = "<group>"; };
+		371E235E1C2999846F2AE334 /* LSKRandomColorAppConfigConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKRandomColorAppConfigConst.h; sourceTree = "<group>"; };
+		371E246788C6848D91311490 /* LSKActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKActionSheetView.m; sourceTree = "<group>"; };
 		371E254C5F6817401DEE121A /* LSKColorUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKColorUtils.h; sourceTree = "<group>"; };
 		371E25B08EC4B92E722DDB82 /* LSKColorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKColorUtils.m; sourceTree = "<group>"; };
 		371E2B1EACD57748EA42035F /* LSKColorDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKColorDictionary.h; sourceTree = "<group>"; };
 		371E2BF30218CBE7647E51D9 /* LSKColorDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKColorDictionary.m; sourceTree = "<group>"; };
+		371E2C01E067F0137CC8BCF0 /* LSKActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKActionSheetView.h; sourceTree = "<group>"; };
 		371E2E17953CA7186D84E0DE /* LSKRandomColorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKRandomColorTableViewCell.h; sourceTree = "<group>"; };
 		371E2F42D94E8BC40CB39C25 /* LSKRandomColorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKRandomColorTableViewCell.m; sourceTree = "<group>"; };
 		580EF74F1A727C5500AAE1DF /* RandomColor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomColor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,8 +88,18 @@
 			children = (
 				371E2F42D94E8BC40CB39C25 /* LSKRandomColorTableViewCell.m */,
 				371E2E17953CA7186D84E0DE /* LSKRandomColorTableViewCell.h */,
+				371E2815343F810C7DD3CA40 /* ActionSheetView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		371E2815343F810C7DD3CA40 /* ActionSheetView */ = {
+			isa = PBXGroup;
+			children = (
+				371E246788C6848D91311490 /* LSKActionSheetView.m */,
+				371E2C01E067F0137CC8BCF0 /* LSKActionSheetView.h */,
+			);
+			path = ActionSheetView;
 			sourceTree = "<group>";
 		};
 		580EF7461A727C5500AAE1DF = {
@@ -118,6 +132,7 @@
 				580EF7521A727C5500AAE1DF /* Supporting Files */,
 				371E27F9A009D168D5DAFD6B /* Views */,
 				371E210A078F467146F3EE24 /* ColorUtils */,
+				371E235E1C2999846F2AE334 /* LSKRandomColorAppConfigConst.h */,
 			);
 			path = RandomColor;
 			sourceTree = "<group>";
@@ -254,6 +269,7 @@
 				371E2A90551AE18C6C358287 /* LSKColorDictionary.m in Sources */,
 				371E2F7D141B68919A26887E /* LSKColorUtils.m in Sources */,
 				371E296DB896CC4D1A4D95BD /* LSKRandomColorTableViewCell.m in Sources */,
+				371E2FE8DC817787E04245AA /* LSKActionSheetView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
