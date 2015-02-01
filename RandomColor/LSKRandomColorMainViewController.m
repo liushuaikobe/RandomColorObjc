@@ -10,19 +10,23 @@
 #import "LSKRandomColorTableViewCell.h"
 #import "LSKColorDictionary.h"
 #import "LSKColorUtils.h"
+#import "LSKActionSheetView.h"
 
 #define LSK_COLOR_TABLEVIEW_CELL_REUSE_ID   @"LSKRandomColorTableViewCell"
 #define LSK_RANDOM_COLOR_COUNT              (5)
 #define LSK_MAIN_CONTROLLER_FN_VIEW_HEIGHT  (70.0f)
 
 
-@interface LSKRandomColorMainViewController ()<UITableViewDataSource, UITableViewDelegate> {
+@interface LSKRandomColorMainViewController ()<UITableViewDataSource, UITableViewDelegate, LSKHuePickerDelegate> {
     // ---- Views
     UITableView *_colorTableView;
     UIButton *_hueChooseButton, *_luminosityChooseButton;
+    LSKActionSheetView *_huePickView;
     // ---- Data
     NSArray *_colors;
     NSArray *_hues;
+    NSArray *_hueNames;
+    NSString *_currentHueName;
     NSArray *_luminosities;
 }
 
@@ -36,14 +40,15 @@
     self.view.backgroundColor = [UIColor whiteColor];
     // hide status bar
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    // set up hues
+    [self setupHues];
     // set up views
     [self setupColorTableView];
     [self setupButtons];
-    // generate colors
+    // load colors
     [[LSKColorDictionary sharedDictionary] loadColors];
-    _colors = [LSKColorUtils generateRadomColors:LSK_RANDOM_COLOR_COUNT
-                                         hueName:@"monochrome"
-                                      luminosity:LSKColorLuminosityLight];
+    _currentHueName = _hueNames[_hueNames.count - 1];
+    [self generateColors];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -53,6 +58,10 @@
     CGFloat buttonWidth = CGRectGetWidth(self.view.bounds) / 2;
     _hueChooseButton.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds) - LSK_MAIN_CONTROLLER_FN_VIEW_HEIGHT, buttonWidth, LSK_MAIN_CONTROLLER_FN_VIEW_HEIGHT);
     _luminosityChooseButton.frame = CGRectMake(buttonWidth, CGRectGetHeight(self.view.bounds) - LSK_MAIN_CONTROLLER_FN_VIEW_HEIGHT, buttonWidth, LSK_MAIN_CONTROLLER_FN_VIEW_HEIGHT);
+
+    if (_huePickView && !_huePickView.hidden) {
+
+    }
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -102,10 +111,29 @@
     }
 }
 
+- (void)setupHuePickerView {
+    if (!_huePickView) {
+        CGFloat pickerViewHeight = (_hues.count / 2 + 1) * LSK_ACTION_SHEET_LINE_HEIGHT;
+        _huePickView = [[LSKActionSheetView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - pickerViewHeight,
+                CGRectGetWidth(self.view.bounds), pickerViewHeight)];
+        _huePickView.delegate = self;
+        _huePickView.hidden = YES;
+        [self.view addSubview:_huePickView];
+        [_huePickView bindData:_hues];
+    }
+}
+
 #pragma mark - set up datas
 
 - (void)setupHues {
-
+    _hueNames = @[@"red", @"orange",
+            @"yellow", @"green",
+            @"blue", @"purple",
+            @"pink", @"monochrome"];
+    _hues = @[[UIColor redColor], [UIColor orangeColor],
+            [UIColor yellowColor], [UIColor greenColor],
+            [UIColor blueColor], [UIColor purpleColor],
+            [UIColor colorWithRed:255/255.0f green:192/255.0f blue:203/255.0f alpha:1.0f], [UIColor grayColor]];
 }
 
 #pragma mark - UITableViewDataSource
@@ -131,14 +159,43 @@
     return NO;
 }
 
+#pragma mark - HuePicker Delegate
+
+- (void)huePickerView:(LSKActionSheetView *)huePickerView cancelButtonClicked:(id)cancelButton {
+    [self hideHuePickerView];
+}
+
+- (void)huePickerView:(LSKActionSheetView *)huePickerView hueSeleced:(NSIndexPath *)indexPath {
+    [self hideHuePickerView];
+    _currentHueName = _hueNames[(NSUInteger)indexPath.row];
+    [self generateColors];
+    [_colorTableView reloadData];
+}
+
+
 #pragma mark - Options select
 
 - (void)onHueSelect:(id)sender {
-
+    [self showHuePickerView];
 }
 
 - (void)onLuminositySelect:(id)sender {
 
+}
+
+- (void)showHuePickerView {
+    [self setupHuePickerView];
+    _huePickView.hidden = NO;
+}
+
+- (void)hideHuePickerView {
+    _huePickView.hidden = YES;
+}
+
+- (void)generateColors {
+    _colors = [LSKColorUtils generateRadomColors:LSK_RANDOM_COLOR_COUNT
+                                         hueName:_currentHueName
+                                      luminosity:LSKColorLuminosityLight];
 }
 
 @end

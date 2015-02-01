@@ -5,7 +5,6 @@
 
 #import "LSKActionSheetView.h"
 
-#define LSK_ACTION_SHEET_LINE_HEIGHT    (70.0f)
 #define LSK_ACTION_SHEET_CELL_REUSE_ID  (@"LSKActionSheetCell")
 
 @interface LSKActionSheetView ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
@@ -30,9 +29,12 @@
         _menuCollectionView.delegate = self;
         _menuCollectionView.dataSource = self;
         [_menuCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:LSK_ACTION_SHEET_CELL_REUSE_ID];
+        [self addSubview:_menuCollectionView];
         // set up cancelButton
         _cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
         [_cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+        [_cancelButton addTarget:self action:@selector(onCancelButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_cancelButton];
     }
     return self;
 }
@@ -56,7 +58,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView
         didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%d", indexPath.row);
+    if (self.delegate && [self.delegate respondsToSelector:@selector(huePickerView:hueSeleced:)]) {
+        [self.delegate huePickerView:self hueSeleced:indexPath];
+    }
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
@@ -102,5 +106,10 @@
     return 0;
 }
 
+- (void)onCancelButtonClicked:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(huePickerView:hueSeleced:)]) {
+        [self.delegate huePickerView:self cancelButtonClicked:sender];
+    }
+}
 
 @end
