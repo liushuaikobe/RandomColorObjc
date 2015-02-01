@@ -7,4 +7,7 @@
 
 
 @interface LSKActionSheetView : UIView
+
+- (void)bindData:(NSArray *)data;
+
 @end
