@@ -8,23 +8,20 @@
 
 #import "LSKColorUtils.h"
 #import "LSKColorDictionary.h"
-#import <CoreGraphics/CoreGraphics.h>
-#import <UIKit/UIKit.h>
-
 
 @implementation LSKColorUtils
 
 + (NSArray *)generateRadomColors:(NSInteger)count
                          hueName:(NSString *)hueName
                       luminosity:(LSKColorLuminosity)luminosity{
-    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:count];
+    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:(NSUInteger)count];
     UIColor *color = [UIColor whiteColor];
     for (NSInteger i = 0; i < count; ++i) {
         NSInteger H = [LSKColorUtils pickHue:hueName];
         NSInteger S = [LSKColorUtils pickSaturation:H luminosity:luminosity];
         NSInteger B = [LSKColorUtils pickBrightness:H saturation:S luminosity:luminosity];
         NSLog(@"H:%zd, S:%zd, B:%zd", H, S, B);
-        color = [UIColor colorWithHue:H / 360.0 saturation:S / 100.0 brightness:B / 100.0 alpha:1.0];
+        color = [UIColor colorWithHue:H / 360.0f saturation:S / 100.0f brightness:B / 100.0f alpha:1.0];
         [array addObject:color];
     }
     return array;
@@ -33,17 +30,17 @@
 #pragma mark - Pick Hue
 
 + (NSInteger)pickHue:(NSString *)hueName {
-    NSRange hueRange = [LSKColorUtils getHueRangeByColorName:hueName];
+    NSArray *hueRange = [LSKColorUtils getHueRangeByColorName:hueName];
     NSInteger hue = [LSKColorUtils randomWithIn:hueRange];
     return (hue < 0) ? (hue + 360) : hue;
 }
 
-+ (NSRange)getHueRangeByColorName:(NSString *)colorName {
++ (NSArray *)getHueRangeByColorName:(NSString *)colorName {
     NSDictionary *color = [LSKColorDictionary sharedDictionary].colors[colorName];
     if (color && ![color[@"hueRange"] isEqual:[NSNull null]]) {
-        return [color[@"hueRange"] rangeValue];
+        return color[@"hueRange"];
     }
-    return NSMakeRange(0, 360);
+    return @[@(0), @(360)];
 }
 
 #pragma mark - Pick Saturation
@@ -51,16 +48,15 @@
 + (NSInteger)pickSaturation:(NSInteger)hue
                  luminosity:(LSKColorLuminosity)luminosity {
     if (luminosity == LSKColorLuminosityRandom) {
-        return [LSKColorUtils randomWithIn:NSMakeRange(0, 100)];
+        return [LSKColorUtils randomWithIn:@[@(0), @(100)]];
     }
     if (luminosity == LSKColorLuminosityMonochrome) {
         return 0;
     }
-    NSValue *saturationRangeValue = [LSKColorUtils getSaturationRangeByHue:hue];
+    NSArray *saturationRangeValue = [LSKColorUtils getSaturationRangeByHue:hue];
     if (saturationRangeValue) {
-        NSRange saturationRange = [saturationRangeValue rangeValue];
-        NSInteger sMin = saturationRange.location;
-        NSInteger sMax = saturationRange.location + saturationRange.length;
+        NSInteger sMin = [saturationRangeValue[0] integerValue];
+        NSInteger sMax = [saturationRangeValue[1] integerValue];
         switch (luminosity) {
             case LSKColorLuminosityDark: {
                 sMin = sMax - 10;
@@ -78,12 +74,12 @@
                 break;
             }
         }
-        return [LSKColorUtils randomWithIn:NSMakeRange(sMin, sMax - sMin)];
+        return [LSKColorUtils randomWithIn:@[@(sMin), @(sMax)]];
     }
-    return [LSKColorUtils randomWithIn:NSMakeRange(0, 0)];
+    return [LSKColorUtils randomWithIn:@[@(0), @(0)]];
 }
 
-+ (NSValue *)getSaturationRangeByHue:(NSInteger)hue {
++ (NSArray *)getSaturationRangeByHue:(NSInteger)hue {
     NSDictionary *colorInfo = [LSKColorUtils getColorInfo:hue];
     if (colorInfo) {
         return colorInfo[@"saturationRange"];
@@ -115,7 +111,7 @@
         default:
             break;
     }
-    return [LSKColorUtils randomWithIn:NSMakeRange(bMin, bMax - bMin)];
+    return [LSKColorUtils randomWithIn:@[@(bMin), @(bMax)]];
 }
 
 + (NSInteger)getMinBrightness:(NSInteger)hue
@@ -123,7 +119,7 @@
     NSDictionary *colorInfo = [LSKColorUtils getColorInfo:hue];
     if (colorInfo) {
         NSArray *lowerBounds = colorInfo[@"lowerBounds"];
-        for (int i = 0; i < lowerBounds.count - 1; ++i) {
+        for (NSUInteger i = 0; i < lowerBounds.count - 1; ++i) {
             NSInteger s1 = [lowerBounds[i][0] integerValue];
             NSInteger v1 = [lowerBounds[i][1] integerValue];
             
@@ -133,7 +129,7 @@
             if (saturation >= s1 && saturation <= s2) {
                 CGFloat m = ((CGFloat)(v2 - v1)) / ((CGFloat)(s2 - s1));
                 CGFloat b = v1 - m * s1;
-                return m * saturation + b;
+                return (NSInteger)(m * saturation + b);
             }
         }
     }
@@ -142,11 +138,20 @@
 
 #pragma mark - other functions
 
-+ (NSInteger)randomWithIn:(NSRange)range {
-    if (range.length == 0) {
-        return range.location;
++ (NSInteger)randomWithIn:(NSArray *)range {
+
+    if (range.count < 2) {
+        return 0;
     }
-    return arc4random() % range.length + range.location;
+
+    NSInteger starting = [range[0] integerValue];
+    NSInteger ending = [range[1] integerValue];
+
+    if (ending < starting) {
+        return starting;
+    }
+
+    return starting + (arc4random() % (ending - starting + 1));
 }
 
 + (NSDictionary *)getColorInfo:(NSInteger)hue {
@@ -155,8 +160,12 @@
     for (NSString *colorName in colors) {
         NSDictionary *colorInfo = colors[colorName];
         if (![colorInfo[@"hueRange"] isEqual:[NSNull null]]) {
-            NSRange hueRange = [colorInfo[@"hueRange"] rangeValue];
-            if (newHue >= hueRange.location && newHue <= (hueRange.location + hueRange.length)) {
+            NSArray *hueRange = colorInfo[@"hueRange"];
+
+            NSInteger hueRange0 = [hueRange[0] integerValue];
+            NSInteger hueRange1 = [hueRange[1] integerValue];
+
+            if (newHue >= hueRange0 && newHue <= hueRange1) {
                 return colorInfo;
             }
         }

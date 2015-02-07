@@ -195,7 +195,7 @@
 - (void)generateColors {
     _colors = [LSKColorUtils generateRadomColors:LSK_RANDOM_COLOR_COUNT
                                          hueName:_currentHueName
-                                      luminosity:LSKColorLuminosityLight];
+                                      luminosity:LSKColorLuminosityBright];
 }
 
 @end

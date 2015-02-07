@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, LSKColorLuminosity) {
                          hueName:(NSString *)hueName
                       luminosity:(LSKColorLuminosity)luminosity;
 
-+ (NSInteger)randomWithIn:(NSRange)range;
++ (NSInteger)randomWithIn:(NSArray *)range;
 
 + (NSDictionary *)getColorInfo:(NSInteger)hue;
 

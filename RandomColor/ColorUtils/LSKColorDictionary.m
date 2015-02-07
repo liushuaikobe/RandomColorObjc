@@ -28,29 +28,21 @@
     NSInteger bMax = [lowerBoundsArray[0][1] integerValue];
     
     if (hueRangeArray) {
-    
-        NSRange hueRange = [[LSKColorDictionary sharedDictionary] rangeArraytoRange:hueRangeArray];
-        
         [LSKColorDictionary sharedDictionary].colors[name] = @{
-                                                               @"hueRange":[NSValue valueWithRange:hueRange],
+                                                               @"hueRange":hueRangeArray,
                                                                @"lowerBounds": lowerBoundsArray,
-                                                               @"saturationRange": [NSValue valueWithRange:NSMakeRange(sMin, sMax - sMin)],
-                                                               @"brightnessRange": [NSValue valueWithRange:NSMakeRange(bMin, bMax - bMin)]
+                                                               @"saturationRange": @[@(sMin), @(sMax)],
+                                                               @"brightnessRange": @[@(bMin), @(bMax)]
                                                                };
     } else {
         [LSKColorDictionary sharedDictionary].colors[name] = @{
                                                                @"hueRange":[NSNull null],
                                                                @"lowerBounds": lowerBoundsArray,
-                                                               @"saturationRange": [NSValue valueWithRange:NSMakeRange(sMin, sMax - sMin)],
-                                                               @"brightnessRange": [NSValue valueWithRange:NSMakeRange(bMin, bMax - bMin)]
+                                                               @"saturationRange": @[@(sMin), @(sMax)],
+                                                               @"brightnessRange": @[@(bMin), @(bMax)]
                                                                };
     }
 }
-
-- (NSRange)rangeArraytoRange:(NSArray *)rangeArray {
-    return NSMakeRange([rangeArray[0] integerValue], [rangeArray[1] integerValue] - [rangeArray[0] integerValue]);
-}
-
 
 + (LSKColorDictionary *)sharedDictionary {
     static LSKColorDictionary * sharedDictionary = nil;
